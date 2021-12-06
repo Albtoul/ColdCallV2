@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var numberLabel: UILabel!
     
     let names = ["Majed","Jomanah","Atheer","Albtoul","Basema"]
     
@@ -20,7 +21,19 @@ class ViewController: UIViewController {
 
     @IBAction func coldCallPressed(_ sender: UIButton) {
         let random = Int.random(in: 0...names.count-1)
+        let random2 = Int.random(in: 1...5)
+        
+        if random2 == 1 || random2 == 2 {
+            numberLabel.textColor = .red
+        }else if random2 == 3 || random2 == 4{
+            numberLabel.textColor = .orange
+        }else {
+            numberLabel.textColor = .green
+        }
+        
         nameLabel.text = names[random]
+        numberLabel.text = "\(random2)"
+        
     }
     
 }
